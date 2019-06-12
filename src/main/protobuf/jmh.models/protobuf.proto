@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "scalapb/scalapb.proto";
+
+package jmh.models;
+
+option java_package = "jmh.models";
+option java_outer_classname = "ModelForPBProtos";
+
+message ModelForPB {
+  bool a = 1;
+  int32 b = 2;
+  int32 c = 3;
+  int64 d = 4;
+  int32 e = 5 [(scalapb.field).type = "scala.math.BigDecimal"];
+  string f = 6;
+  bool g = 7;
+  string h = 8 [(scalapb.field).type = "java.time.LocalDateTime"];
+  string i = 9 [(scalapb.field).type = "java.time.OffsetDateTime"];
+
+  repeated double j = 10 [(scalapb.field).type = "scala.math.BigDecimal", (scalapb.field).collection_type="collection.Seq"];
+}
